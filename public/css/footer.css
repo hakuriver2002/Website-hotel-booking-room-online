@@ -1,0 +1,13 @@
+.footer {
+  background-color: #5f5743;
+  color: #d3dce4; }
+
+.row .col-md-4 li {
+  margin-top: 5px; }
+
+.row .col-md-4 a {
+  color: #dddddd;
+  text-decoration: none; }
+
+.row .col-md-4 a:hover {
+  color: #FAD246; }

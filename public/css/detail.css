@@ -1,0 +1,44 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@200;300;400;500;600;700;800;900&display=swap");
+@import url("https://fonts.googleapis.com/css?family=HK Grotesk Bold");
+* {
+  font-family: 'Roboto Slab', serif; }
+
+.navbar-toggler:focus {
+  outline: 5px solid white !important; }
+
+.navbar {
+  font-size: 18px;
+  background-color: #5f5743; }
+  .navbar a {
+    color: white; }
+  .navbar a:hover {
+    color: #28e6f0; }
+
+.fa {
+  font-size: 30px;
+  color: white; }
+
+.room-image {
+  height: 550px;
+  object-fit: cover; }
+
+.room-description {
+  padding-top: 20px;
+  padding-bottom: 20px; }
+
+.room-facilities {
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  padding: 10px;
+  margin-top: 20px; }
+
+.room-facilities h3 {
+  font-size: 22px;
+  margin-bottom: 10px; }
+
+.room-facilities ul {
+  list-style: none;
+  padding-left: 0; }
+
+.room-facilities li {
+  margin-bottom: 5px; }

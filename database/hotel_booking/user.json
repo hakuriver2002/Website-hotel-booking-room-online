@@ -1,0 +1,184 @@
+[{
+  "_id": {
+    "$oid": "643acdc28cc0bfd1061b3fb5"
+  },
+  "username": "din",
+  "password": "$2b$10$IGPOpAyhL7TvirpE/aJIpOmMCCNK5me5NLe0zIspqo/m6jvURHyI2",
+  "role": "client",
+  "email": "din262bmt@gmail.com",
+  "created_at": {
+    "$date": "2023-04-15T16:16:02.052Z"
+  },
+  "updated_at": {
+    "$date": "2023-04-20T09:08:11.685Z"
+  },
+  "__v": 0,
+  "address": "160 Hùng Vương, Phường Tự An, TP Buôn Ma Thuột",
+  "birthday": "02/06/2002",
+  "city": "Hồ Chí Minh",
+  "country": "Viet Nam",
+  "fullname": "Trần Hoàng Quang Din",
+  "gender": "Nam",
+  "id_card": "066202009375",
+  "phone": "0944217297",
+  "avatar": "avatar-din.jpg"
+},{
+  "_id": {
+    "$oid": "643acde88cc0bfd1061b3fb9"
+  },
+  "username": "admin",
+  "password": "$2b$10$i/bikDI5tkCvE7vJonfa5Oihv82.nxwjz5ODHjsGjlnHUVXul8S9.",
+  "role": "admin",
+  "email": "admin@gmail.com",
+  "created_at": {
+    "$date": "2023-04-15T16:16:40.544Z"
+  },
+  "updated_at": {
+    "$date": "2023-04-15T16:16:40.544Z"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "643cbeb162dd7fdfd82e6ded"
+  },
+  "username": "tramngoo",
+  "password": "$2b$10$2o/gofn15f.7OYXZ1QylLO8N72ejIXDspfy/2mrXSYnMgJ9ZQL2xm",
+  "role": "client",
+  "email": "tramngooqua@gmail.com",
+  "created_at": {
+    "$date": "2023-04-17T03:36:17.293Z"
+  },
+  "updated_at": {
+    "$date": "2023-04-22T15:56:25.711Z"
+  },
+  "__v": 0,
+  "address": "123 Huỳnh Tấn Phát, Q7, TP HCM",
+  "birthday": "01/01/2003",
+  "city": "Hồ Chí Minh",
+  "country": "Austria",
+  "fullname": "Trương Thị Ngân Châm",
+  "gender": "Nữ",
+  "id_card": "912479123421",
+  "phone": "0987654321",
+  "avatar": "avatar-tramngoo.jpg"
+},{
+  "_id": {
+    "$oid": "643cefb84e86e06997e81283"
+  },
+  "username": "trinhduy444",
+  "password": "$2b$10$FyoTgBMAaBL5efSVEaGK7OfIsvkZsEHx30UAN784P30snVJDpfVZu",
+  "role": "client",
+  "email": "trinhduy444@gmail.com",
+  "created_at": {
+    "$date": "2023-04-17T07:05:28.564Z"
+  },
+  "updated_at": {
+    "$date": "2023-04-22T15:59:06.868Z"
+  },
+  "__v": 0,
+  "address": "Phu Tai, Quy nhơn, Bình Định,Ke tao",
+  "birthday": "2002-12-08",
+  "gender": "Nữ",
+  "phone": "0344511607",
+  "fullname": "TrịnhTrườnng Duy",
+  "city": "Hồ Chí Minh",
+  "country": "Viet Nam",
+  "id_card": "",
+  "avatar": "avatar-trinhduy444.jpg"
+},{
+  "_id": {
+    "$oid": "643cf1693c811e1ed48def36"
+  },
+  "username": "ndinhkhang329",
+  "password": "$2b$10$i/bikDI5tkCvE7vJonfa5Oihv82.nxwjz5ODHjsGjlnHUVXul8S9.",
+  "role": "client",
+  "email": "mrlongg71@gmail.com",
+  "created_at": {
+    "$date": "2023-04-17T07:12:41.776Z"
+  },
+  "updated_at": {
+    "$date": "2023-04-22T15:59:24.429Z"
+  },
+  "__v": 0,
+  "address": "Quy Nhon",
+  "birthday": "1999-03-11",
+  "fullname": "Nguyen Dinh Khang",
+  "gender": "Nữ",
+  "phone": "0368849858",
+  "city": "",
+  "country": "Barbados",
+  "id_card": "",
+  "avatar": "avatar-ndinhkhang329.jpg"
+},{
+  "_id": {
+    "$oid": "6443e1ddbd61459851e0cbcc"
+  },
+  "username": "doanphuongnam",
+  "password": "$2b$10$1z8mDPn6hIvdax1K7hIZYuZF0N6hCB2fg6F.bqk1oeQi/wSBveA32",
+  "role": "client",
+  "email": "doanphuongnam@gmail.com",
+  "created_at": {
+    "$date": "2023-04-22T13:32:13.390Z"
+  },
+  "updated_at": {
+    "$date": "2023-04-22T15:59:35.353Z"
+  },
+  "__v": 0,
+  "address": "Tân Phú, Thành Phố HCM",
+  "birthday": "2002-04-22",
+  "fullname": "Đoàn Phương Nam",
+  "gender": "Nữ",
+  "phone": "0123456789",
+  "city": "",
+  "country": "Hungary",
+  "id_card": "912479123421",
+  "avatar": "avatar-doanphuongnam.jpg"
+},{
+  "_id": {
+    "$oid": "64440de46dda12811048099d"
+  },
+  "username": "namtong",
+  "password": "$2b$10$xjXYgSR/WQQw87ntPHWQ7OtxirTVBIXGu6oNWi4dQeKLWB9IfhTt2",
+  "role": "client",
+  "email": "nam123@gmail.com",
+  "created_at": {
+    "$date": "2023-04-22T16:40:04.938Z"
+  },
+  "updated_at": {
+    "$date": "2023-04-22T16:41:07.810Z"
+  },
+  "__v": 0,
+  "address": "123 duong so 3",
+  "avatar": "avatar-namtong.jpg",
+  "birthday": "",
+  "city": "",
+  "country": "Austria",
+  "fullname": "Trần Hoàng Bảo Khôi",
+  "gender": "Nam",
+  "id_card": "066202009375",
+  "phone": "0979736572"
+},{
+  "_id": {
+    "$oid": "64440e006dda1281104809a4"
+  },
+  "username": "khoingo1123",
+  "password": "$2b$10$7DClwMVyaXYm/LCjkvch8e3F/1HcflfNfbU68wS455hYQ4jXuvOFq",
+  "role": "client",
+  "email": "baokhoi262@gmail.com",
+  "created_at": {
+    "$date": "2023-04-22T16:40:32.038Z"
+  },
+  "updated_at": {
+    "$date": "2023-04-22T16:41:26.479Z"
+  },
+  "__v": 0,
+  "address": "",
+  "avatar": "avatar-khoingo1123.jpg",
+  "birthday": "04/04/2023",
+  "city": "",
+  "country": "",
+  "fullname": "Trần Hoàng Bảo Khôi",
+  "gender": "Nữ",
+  "id_card": "",
+  "phone": "0979736572"
+}]

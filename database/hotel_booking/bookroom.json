@@ -1,0 +1,199 @@
+[{
+  "_id": {
+    "$oid": "644407a1e3606e6b7c6ebbc5"
+  },
+  "book_id": "BR1682180001298",
+  "room_code": "601",
+  "username": "user_1682180001298",
+  "price": 5000000,
+  "adult": 2,
+  "children": 2,
+  "transaction_date": {
+    "$date": "2023-04-22T16:13:21.298Z"
+  },
+  "checkin": {
+    "$date": "2023-04-22T00:00:00.000Z"
+  },
+  "checkout": {
+    "$date": "2023-04-24T00:00:00.000Z"
+  },
+  "fullname": "Trần Hoàng Bảo Khôi",
+  "email": "admin3@gmail.com",
+  "phone": "0944217297",
+  "note": "Chuẩn bị bữa ăn sáng",
+  "status_booking": "checkin",
+  "status_payment": "paid",
+  "created_at": {
+    "$date": "2023-04-22T16:13:21.301Z"
+  },
+  "updated_at": {
+    "$date": "2023-04-22T16:13:21.301Z"
+  },
+  "__v": 0,
+  "payment": "credit-card"
+},{
+  "_id": {
+    "$oid": "644407bae3606e6b7c6ebbd2"
+  },
+  "book_id": "BR1682180026399",
+  "room_code": "308",
+  "username": "din",
+  "price": 1305760,
+  "adult": 1,
+  "children": 0,
+  "transaction_date": {
+    "$date": "2023-04-22T16:13:46.399Z"
+  },
+  "checkin": {
+    "$date": "2023-04-26T00:00:00.000Z"
+  },
+  "checkout": {
+    "$date": "2023-04-28T00:00:00.000Z"
+  },
+  "fullname": "Trần Hoàng Quang Din",
+  "email": "din262bmt@gmail.com",
+  "phone": "0944217297",
+  "note": "",
+  "status_booking": "checkin",
+  "status_payment": "paid",
+  "created_at": {
+    "$date": "2023-04-22T16:13:46.400Z"
+  },
+  "updated_at": {
+    "$date": "2023-04-22T16:13:46.400Z"
+  },
+  "__v": 0,
+  "payment": "credit-card"
+},{
+  "_id": {
+    "$oid": "644407d0e3606e6b7c6ebbdc"
+  },
+  "book_id": "BR1682180048123",
+  "room_code": "603",
+  "username": "din",
+  "price": 21495000,
+  "adult": 1,
+  "children": 1,
+  "transaction_date": {
+    "$date": "2023-04-22T16:14:08.123Z"
+  },
+  "checkin": {
+    "$date": "2023-04-27T00:00:00.000Z"
+  },
+  "checkout": {
+    "$date": "2023-05-02T00:00:00.000Z"
+  },
+  "fullname": "Trần Hoàng Quang Din",
+  "email": "din262bmt@gmail.com",
+  "phone": "0944217297",
+  "note": "",
+  "status_booking": "pending",
+  "status_payment": "pending",
+  "created_at": {
+    "$date": "2023-04-22T16:14:08.123Z"
+  },
+  "updated_at": {
+    "$date": "2023-04-22T16:14:08.123Z"
+  },
+  "__v": 0,
+  "payment": "credit-card"
+},{
+  "_id": {
+    "$oid": "64440819e3606e6b7c6ebbed"
+  },
+  "book_id": "BR1682180121806",
+  "room_code": "301",
+  "username": "tramngoo",
+  "price": 107994000,
+  "adult": 6,
+  "children": 4,
+  "transaction_date": {
+    "$date": "2023-04-22T16:15:21.806Z"
+  },
+  "checkin": {
+    "$date": "2023-04-28T00:00:00.000Z"
+  },
+  "checkout": {
+    "$date": "2023-05-04T00:00:00.000Z"
+  },
+  "fullname": "Trương Thị Ngân Châm",
+  "email": "tramngooqua@gmail.com",
+  "phone": "0987654321",
+  "note": "",
+  "status_booking": "canceled",
+  "status_payment": "pending",
+  "created_at": {
+    "$date": "2023-04-22T16:15:21.807Z"
+  },
+  "updated_at": {
+    "$date": "2023-04-22T16:15:21.807Z"
+  },
+  "__v": 0,
+  "payment": "bank-transfer"
+},{
+  "_id": {
+    "$oid": "6444083ee3606e6b7c6ebbfa"
+  },
+  "book_id": "BR1682180158563",
+  "room_code": "401",
+  "username": "trinhduy444",
+  "price": 51996000,
+  "adult": 8,
+  "children": 4,
+  "transaction_date": {
+    "$date": "2023-04-22T16:15:58.563Z"
+  },
+  "checkin": {
+    "$date": "2023-04-24T00:00:00.000Z"
+  },
+  "checkout": {
+    "$date": "2023-04-28T00:00:00.000Z"
+  },
+  "fullname": "TrịnhTrườnng Duy",
+  "email": "trinhduy444@gmail.com",
+  "phone": "0344511607",
+  "note": "",
+  "status_booking": "checkout",
+  "status_payment": "pending",
+  "created_at": {
+    "$date": "2023-04-22T16:15:58.563Z"
+  },
+  "updated_at": {
+    "$date": "2023-04-22T16:15:58.563Z"
+  },
+  "__v": 0,
+  "payment": "bank-transfer"
+},{
+  "_id": {
+    "$oid": "64440860e3606e6b7c6ebc02"
+  },
+  "book_id": "BR1682180192798",
+  "room_code": "203",
+  "username": "user_1682180192798",
+  "price": 2580000,
+  "adult": 2,
+  "children": 0,
+  "transaction_date": {
+    "$date": "2023-04-22T16:16:32.798Z"
+  },
+  "checkin": {
+    "$date": "2023-04-26T00:00:00.000Z"
+  },
+  "checkout": {
+    "$date": "2023-04-28T00:00:00.000Z"
+  },
+  "fullname": "Đoàn Phương Nam",
+  "email": "nam123@gmail.com",
+  "phone": "0367529452",
+  "note": "",
+  "status_booking": "confirmed",
+  "status_payment": "paid",
+  "created_at": {
+    "$date": "2023-04-22T16:16:32.798Z"
+  },
+  "updated_at": {
+    "$date": "2023-04-22T16:16:32.798Z"
+  },
+  "__v": 0,
+  "payment": "bank-transfer"
+}]

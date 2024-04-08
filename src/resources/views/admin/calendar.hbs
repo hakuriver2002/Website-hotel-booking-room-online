@@ -1,0 +1,255 @@
+<div class="container px-5 py-3">
+    <div class="row">
+            <div class="col">
+                <div class="calendar p-5 shadow-lg">
+
+                    <div class="d-flex justify-content-between mb-3">
+                        <button class="btn btn-secondary prev-month-btn">&lt;</button>
+                        <h2 class="current-month">Tháng 4 2023</h2>
+                        <button class="btn btn-secondary next-month-btn">&gt;</button>
+                    </div>
+
+                    <table class="table table-bordered">
+                        <thead>
+                            <tr>
+                                <th class="text-end text-muted">CN</th>
+                                <th class="text-muted">T2</th>
+                                <th class="text-muted">T3</th>
+                                <th class="text-muted">T4</th>
+                                <th class="text-muted">T5</th>
+                                <th class="text-muted">T6</th>
+                                <th class="text-muted">T7</th>
+                            </tr>
+                        </thead>
+                        <tbody class="calendar-body">
+                            <tr>
+                                <td class="text-end"></td>
+                                <td>
+                                    <div class="day"></div>
+                                </td>
+                                <td>
+                                    <div class="day"></div>
+                                </td>
+                                <td>
+                                    <div class="day"></div>
+                                </td>
+                                <td>
+                                    <div class="day"></div>
+                                </td>
+                                <td>
+                                    <div class="day"></div>
+                                </td>
+                                <td class="text-end">
+                                    <div class="day"></div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="text-end">
+                                    <div class="day"></div>
+                                </td>
+                                <td>
+                                    <div class="day"></div>
+                                </td>
+                                <td>
+                                    <div class="day"></div>
+                                </td>
+                                <td>
+                                    <div class="day"></div>
+                                </td>
+                                <td>
+                                    <div class="day"></div>
+                                </td>
+                                <td>
+                                    <div class="day"></div>
+                                </td>
+                                <td class="text-end">
+                                    <div class="day"></div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="text-end">
+                                    <div class="day"></div>
+                                </td>
+                                <td>
+                                    <div class="day"></div>
+                                </td>
+                                <td>
+                                    <div class="day"></div>
+                                </td>
+                                <td>
+                                    <div class="day"></div>
+                                </td>
+                                <td>
+                                    <div class="day"></div>
+                                </td>
+                                <td>
+                                    <div class="day"></div>
+                                </td>
+                                <td class="text-end">
+                                    <div class="day"></div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="text-end">
+                                    <div class="day"></div>
+                                </td>
+                                <td>
+                                    <div class="day"></div>
+                                </td>
+                                <td>
+                                    <div class="day"></div>
+                                </td>
+                                <td>
+                                    <div class="day"></div>
+                                </td>
+                                <td>
+                                    <div class="day"></div>
+                                </td>
+                                <td>
+                                    <div class="day"></div>
+                                </td>
+                                <td class="text-end">
+                                    <div class="day"></div>
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td class="text-end">
+                                    <div class="day"></div>
+                                </td>
+                                <td>
+                                    <div class="day"></div>
+                                </td>
+                                <td>
+                                    <div class="day"></div>
+                                </td>
+                                <td>
+                                    <div class="day"></div>
+                                </td>
+                                <td>
+                                    <div class="day"></div>
+                                </td>
+                                <td>
+                                    <div class="day"></div>
+                                </td>
+                                <td class="text-end">
+                                    <div class="day"></div>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+                </div>
+            </div>
+        </div>
+</div>
+
+<script>
+    const prevMonthBtn = document.querySelector('.prev-month-btn');
+    const nextMonthBtn = document.querySelector('.next-month-btn');
+    const currentMonth = document.querySelector('.current-month');
+
+
+    let currentMonthIndex = 3;
+    let currentYear = 2023;
+
+
+    function updateCurrentMonth() {
+        const date = new Date(currentYear, currentMonthIndex);
+        const options = { month: 'long', year: 'numeric' };
+        currentMonth.innerHTML = date.toLocaleDateString('vi-VN', options);
+    }
+
+    function updateCalendar() {
+
+        const date = new Date(currentYear, currentMonthIndex);
+        const firstDay = new Date(date.getFullYear(), date.getMonth(), 1);
+        const lastDay = new Date(date.getFullYear(), date.getMonth() + 1, 0);
+
+
+
+
+        const calendarBody = document.querySelector('.calendar-body');
+
+
+        calendarBody.innerHTML = '';
+
+
+        let row = document.createElement('tr');
+        let day = 1;
+
+        for (let i = 0; i < 7; i++) {
+            if (i < firstDay.getDay()) {
+
+                let cell = document.createElement('td');
+                let cellText = document.createTextNode('');
+                cell.appendChild(cellText);
+                row.appendChild(cell);
+            } else {
+
+                let cell = document.createElement('td');
+                let cellDiv = document.createElement('div');
+                cellDiv.classList.add('day');
+                cellDiv.innerText = day;
+                cell.appendChild(cellDiv);
+                row.appendChild(cell);
+                day++;
+            }
+        }
+
+        calendarBody.appendChild(row);
+
+
+        for (let i = 0; i < 5; i++) {
+            row = document.createElement('tr');
+
+            for (let j = 0; j < 7; j++) {
+                if (day > lastDay.getDate()) {
+                    let cell = document.createElement('td');
+                    let cellText = document.createTextNode('');
+                    cell.appendChild(cellText);
+                    row.appendChild(cell);
+                } else {
+                    let cell = document.createElement('td');
+                    let cellDiv = document.createElement('div');
+                    cellDiv.classList.add('day');
+                    cellDiv.innerText = day;
+                    cell.appendChild(cellDiv);
+                    row.appendChild(cell);
+                    day++;
+                }
+            }
+
+            calendarBody.appendChild(row);
+        }
+
+        // addEventsToCalendar();
+    }
+
+
+    prevMonthBtn.addEventListener('click', () => {
+        currentMonthIndex--;
+        if (currentMonthIndex < 0) {
+            currentMonthIndex = 11;
+            currentYear--;
+        }
+        updateCurrentMonth();
+        updateCalendar();
+    });
+
+
+    nextMonthBtn.addEventListener('click', () => {
+        currentMonthIndex++;
+        if (currentMonthIndex > 11) {
+            currentMonthIndex = 0;
+            currentYear++;
+        }
+        updateCurrentMonth();
+        updateCalendar();
+    });
+
+
+    updateCurrentMonth();
+
+    updateCalendar();
+</script>

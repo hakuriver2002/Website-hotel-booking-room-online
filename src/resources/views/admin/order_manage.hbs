@@ -1,0 +1,120 @@
+<div class="container-xl">
+    <div class="row">
+        <div class="col-sm-6 d-flex align-items-center">
+            <div class="btn shadow p-3 mb-4 bg-body rounded">
+                <img class="img-flud" style="max-height: 36px;" src="img/icons/receipt.png">
+            </div>
+            <div class="px-4">
+                <h5>Danh sách đơn đặt phòng</h5>
+                <p class="text-muted">View, create, update, delete and manage</p>
+            </div>
+        </div>
+        <div class="col-sm-6 d-flex align-items-center justify-content-end">
+            <a href="#" class="btn btn-primary d-flex align-items-center rounded mx-1">
+                <i class="material-icons me-2">&#xE24D;</i><span>Xuất file Excel</span>
+            </a>
+        </div>
+    </div>
+
+    <div class="table-responsive shadow rounded">
+        <div class="table-wrapper">
+            <div class="table-title">
+                <div class="row">
+                    <div class="col-sm-8">
+                        <h2>Danh sách <b>đơn đặt phòng</b></h2>
+                    </div>
+                    <div class="col-sm-4">
+                        <div class="search-box">
+                            <i class="material-icons">&#xE8B6;</i>
+                            <input type="text" class="form-control" id="searchInput" onkeyup="searchBox()"
+                                placeholder="Search&hellip;">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <table class="table table-striped table-hover table-bordered" id="myTable">
+                <thead>
+                    <tr>
+                        <th onclick="sortBy(0)" style="width:72px">No.<i class="fa fa-sort"></i></th>
+                        <th onclick="sortBy(1)" style="width:158px">Mã đơn đặt phòng<i class="fa fa-sort"></i></th>
+                        <th onclick="sortBy(2)">Check-in<i class="fa fa-sort"></i></th>
+                        <th onclick="sortBy(3)">Check-out<i class="fa fa-sort"></i></th>
+                        <th onclick="sortBy(4)">Tổng tiền<i class="fa fa-sort"></i></th>
+                        <th onclick="sortBy(5)">Trạng thái đơn<i class="fa fa-sort"></i></th>
+                        <th onclick="sortBy(6)">Trạng thái thanh toán<i class="fa fa-sort"></i></th>
+                        <th>Hành động<i class="fa fa-sort"></i></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {{#each bookRooms}}
+                    <tr>
+                        <td>{{no1 @index }}</td>
+                        <td>{{book_id}}</td>
+                        <td class="check-in">{{ checkin }}</td>
+                        <td class="check-out">{{checkout}}</td>
+                        <td class="price">{{price}}</td>
+                        <td>
+                            {{#ifeq status_booking "pending"}}<span class="badge bg-info text-dark">Chờ xác nhận</span>{{/ifeq}}
+                            {{#ifeq status_booking "confirmed"}}<span class="badge bg-success">Đã xác nhận</span>{{/ifeq}}
+                            {{#ifeq status_booking "canceled"}}<span class="badge bg-danger">Đã hủy</span>{{/ifeq}}
+                            {{#ifeq status_booking "checkin"}}<span class="badge bg-primary">Đã nhận phòng</span>{{/ifeq}}
+                            {{#ifeq status_booking "checkout"}}<span class="badge bg-secondary">Đã trả phòng</span>{{/ifeq}}
+                       </td>
+                        <td>
+                            {{#ifeq status_payment "pending"}}<span class="badge bg-info text-dark">Chờ xác nhận</span>{{/ifeq}}
+                            {{#ifeq status_payment "paid"}}<span class="badge bg-success">Đã thanh toán</span>{{/ifeq}}
+                            {{#ifeq status_payment "unpaid"}}<span class="badge bg-danger">Chưa thanh toán</span>{{/ifeq}}
+                            {{#ifeq status_payment "refund"}}<span class="badge bg-primary">Đã hoàn trả</span>{{/ifeq}}
+                        </td>
+                        <td class="text-center">
+                            <a href="/admin/orders/{{ book_id }}" class="settings" title="Settings"
+                                data-toggle="tooltip"><i class="material-icons">&#xE8B8;</i></a>
+                        </td>
+                    </tr>
+                    {{/each}}
+                </tbody>
+            </table>
+            <div class="clearfix">
+                <div class="hint-text">Showing <b>5</b> out of <b>25</b> entries</div>
+                <ul class="pagination">
+                    <li class="page-item disabled"><a href="#">Previous</a></li>
+                    <li class="page-item"><a href="#" class="page-link">1</a></li>
+                    <li class="page-item"><a href="#" class="page-link">2</a></li>
+                    <li class="page-item active"><a href="#" class="page-link">3</a></li>
+                    <li class="page-item"><a href="#" class="page-link">4</a></li>
+                    <li class="page-item"><a href="#" class="page-link">5</a></li>
+                    <li class="page-item"><a href="#" class="page-link">Next</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+
+</div>
+
+<script>
+    $(document).ready(function () {
+        let VND =new Intl.NumberFormat('vi-VN', {style: 'currency', currency: 'VND'});
+
+        let y = document.querySelectorAll(".price");
+        for (let i = 0; i < y.length; i++) {
+            let price = Number(y[i].innerHTML);
+            y[i].innerHTML = VND.format(price);
+        }
+
+        const checkIn = document.querySelectorAll('.check-in');
+        const checkOut = document.querySelectorAll('.check-out');
+
+        for (let i = 0; i < checkIn.length; i++) {
+            const d = new Date(checkIn[i].innerHTML);
+            const datestring = d.getDate()  + "/" + (d.getMonth()+1) + "/" + d.getFullYear();
+            checkIn[i].innerHTML = datestring;
+        }
+
+        for (let i = 0; i < checkOut.length; i++) {
+            const d = new Date(checkOut[i].innerHTML);
+            const datestring = d.getDate()  + "/" + (d.getMonth()+1) + "/" + d.getFullYear();
+            checkOut[i].innerHTML = datestring;
+        }
+    })
+</script>

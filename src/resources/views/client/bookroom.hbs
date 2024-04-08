@@ -1,0 +1,177 @@
+<link rel="stylesheet" href="./css/bookroom.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+{{#with room}}
+<div class="room-infor px-5 m-5">
+    <div class="p-5">
+        <h3 class="text-center mb-3">Thông tin đặt phòng</h3>
+        <form action="" method="post" id="roomForm" data-room_code="{{room_code}}">
+            <div class="row mb-4">
+                <div class="col-md-4 col-sm-12">
+                    <label for="checkin" class="form-label">Ngày check-in:</label>
+                    <input type="text" placeholder="Check-in-Date" class="form-control dateCheck" id="checkin" name="checkin" required>
+                </div>
+                <div class="col-md-4 col-sm-12">
+                    <label for="checkout" class="form-label">Ngày check-out:</label>
+                    <input type="text" placeholder="Check-out-Date" class="form-control dateCheck" id="checkout" name="checkout" required>
+                </div>
+                <div class="col-md-2 col-sm-12">
+                    <label for="adults" class="form-label">Người lớn:</label>
+                    <input type="number" class="form-control" id="adults" name="adults" min="0" max="10"
+                        value="{{adult}}" required>
+                </div>
+                <div class="col-md-2 col-sm-12">
+                    <label for="children" class="form-label">Trẻ em:</label>
+                    <input type="number" class="form-control" id="children" name="children" min="0" max="10"
+                        value="{{children}}" required>
+                </div>
+            </div>
+            <div class="row mb-4">
+                <div class="col-md-4">
+                    <label for="room-number" class="form-label">Diện tích phòng:</label>
+                    <br>
+                    <label class="fw-bolder" id="{{acreage}}"> {{acreage}} m&sup2</label>
+                    {{!-- <input type="hidden" id="acreage" name="acreage" value="{{acreage}}"> --}}
+
+
+                </div>
+                <div class="col-md-4">
+                    <label for="roomtype" class="form-label">Hạng phòng:</label>
+                    <br>
+                    <label class="types fw-bolder" id="{{room_type}}">{{room_type}}</label>
+                    <input type="hidden" id="room_type" name="room_type" value="{{room_type}}">
+                    <input type="hidden" id="price" name="price" value="{{price}}">
+                    <input type="hidden" id="totalPrice" name="totalPrice">
+                </div>
+                <div class="col-md-4">
+                    <div class="row">
+                        <div class="col-xl-6">
+                            <label for="{{room_code}}" class="form-label">Mã số phòng: </label>
+                            <label class="fw-bolder" id="{{room_code}}">{{room_code}}</label>
+                        </div>
+                        <div class="col-xl-6">
+                            <label for="{{floor}}" class="form-label">Vị trí phòng: </label>
+                            <label class="fw-bolder" id="{{floor}}">Tầng {{floor}}</label>
+
+                        </div>
+                    </div>
+                    {{!-- <label class="form-label">Tổng tiền phòng: <p id="totalPrice" name="totalPrice"></p> </label> --}}
+                   
+                </div>
+            </div>
+    </div>
+</div>
+{{/with}}
+
+<div class="user-infor px-5 m-5">
+    <div class="p-5">
+        <h3 class="text-center mb-3">Thông tin cá nhân</h3>
+        <form action="" method="post" id="yourselfForm" data-room_code="{{room.room_code}}">
+
+            <div class="row form-row">
+                <div class="col-md-6 mb-3">
+                    <label for="fullname">Họ và tên:</label>
+                    <input type="text" class="form-control" id="fullname" name="fullname"
+                        value="{{currentUser.fullname}}"  required>
+                </div>
+            </div>
+            <div class=" row form-row">
+                <div class="col-md-6 mb-3">
+                    <label for="email">Email:</label>
+                    <input type="email" class="form-control" id="email" name="email" 
+                        value="{{currentUser.email}}" required>
+                </div>
+                <div class="col-md-6 mb-3">
+                    <label for="phone">Số điện thoại:</label>
+                    <input type="tel" class="form-control" id="phone" name="phone"
+                        value="{{currentUser.phone}}"  required>
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="col-md-6 mb-3">
+                    <label for="payment">Phương thức thanh toán:</label>
+                    <select class="form-control" id="payment" name="payment" required>
+                        <option value="">Chọn phương thức thanh toán</option>
+                        <option value="credit-card">Thẻ tín dụng</option>
+                        <option value="face-to-face">Thanh toán trực tiếp</option>
+
+                        <option value="bank-transfer">Chuyển khoản ngân hàng</option>
+                        <option value="paypal">Paypal</option>
+                    </select>
+                </div>
+            </div>
+            <div class="form-group mb-4">
+                <label for="note">Chú thích:</label>
+                <textarea class="form-control" id="note" name="note"></textarea>
+            </div>
+            <button type="submit" id="submit-btn" class="btn btn-primary">Đặt phòng</button>
+        </form>
+    </div>
+</div>
+
+
+<script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+<script>
+    const roomFrom = document.getElementById('roomForm');
+    const yourselfForm = document.getElementById('yourselfForm');
+
+    document.getElementById('submit-btn').addEventListener('click', function (event) {
+        const checkin = document.getElementById('checkin').value;
+        const checkout = document.getElementById('checkout').value;
+        const adults = document.getElementById('adults').value;
+        const children = document.getElementById('children').value;
+        const fullname = document.getElementById('fullname').value;
+        const email = document.getElementById('email').value;
+        const phone = document.getElementById('phone').value;
+        const payment = document.getElementById('payment').value;
+
+        if (checkin == '' || checkout == '' || adults == '' || children == '' || fullname == '' || email == '' || phone == '' || payment == '') {
+            alert('Vui lòng nhập đầy đủ thông tin');
+            event.preventDefault();
+        }
+        else {
+            var totalPrice = document.getElementById('totalPrice');
+            var price = document.getElementById('price').value;
+
+            var checkin_date = new Date(checkin);
+            var checkout_date = new Date(checkout);
+            var delta = checkout_date - checkin_date;
+            var total_days = parseInt(delta / (1000 * 60 * 60 * 24));
+            if (total_days < 0) {
+                alert('Ngày trả phòng phải sau ngày nhận phòng');
+                event.preventDefault();
+            }
+            else if (total_days == 0) {
+                totalPrice.value = price;
+
+            }
+            else {
+                totalPrice.value = total_days * price;
+            }
+
+            roomFrom.submit();
+            yourselfForm.submit();
+        }
+    });
+
+    roomFrom.addEventListener('submit', function (event) {
+        const room_code = updateForm.getAttribute('data-room_code');
+        roomFrom.setAttribute('action', `/bookroom/${room_code}`);
+        yourselfForm.setAttribute('action', `/bookroom/${room_code}`);
+    })
+
+
+    let x = document.querySelectorAll(".types");
+    let room_types = JSON.parse(`{{{json room_types }}}`);
+    for (let i = 0; i < x.length; i++) {
+        for (let j = 0; j < room_types.length; j++) {
+            if (room_types[j].id === x[i].innerHTML) {
+                x[i].innerHTML = room_types[j].name;
+            }
+        }
+    }
+    flatpickr(".dateCheck", {  
+        dateFormat: "Y-m-d"
+    })
+
+</script>

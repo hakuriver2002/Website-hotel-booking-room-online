@@ -1,0 +1,22 @@
+[{
+  "_id": {
+    "$oid": "6441fc18a39b1cb43d3eca1a"
+  },
+  "name": "Standard Room",
+  "shortcode": "StR",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "6441fc23a39b1cb43d3eca20"
+  },
+  "name": "Deluxe Room",
+  "shortcode": "DR",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "6441fc32a39b1cb43d3eca26"
+  },
+  "name": "Suite Room",
+  "shortcode": "SuR",
+  "__v": 0
+}]

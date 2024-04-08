@@ -1,0 +1,100 @@
+<link rel="stylesheet" href="./css/home.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+<div class="home">
+  {{#if messageSuccess}}
+  <div class="position-absolute top-0 end-0" style="z-index: 1000; margin: 100px 48px" id="success-alert">
+    <div class="col-lg-10 mx-auto mb-3 w-auto">
+      <div class="alert alert-success alert-dismissible fade show d-flex align-items-center" role="alert">
+        <svg class="bi flex-shrink-0 me-2 mr-3" width="24" height="24" role="img" aria-label="Warning:">
+          <use xlink:href="#check-circle-fill" />
+        </svg>
+        <div> {{ messageSuccess }} </div>
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+      </div>
+    </div>
+  </div>
+  {{/if}}
+  <div class="home_container">
+    <div class="text m-3">
+      <div class="ms-5">
+        <h1>Welcome</h1>
+        <p>Introduction our hotel</p>
+        <button><a href="#welcome" class="nav-link">More information</a> </button>
+      </div>
+
+    </div>
+    <div class="image">
+      <img src="./img/anh8.png" class="slide">
+    </div>
+    <div class="image_item">
+      <img src="./img/home5.jpg" alt="" class="slide active" onclick="img('./img/home5.jpg')">
+      <img src="./img/home6.jpg" alt="" class="slide" onclick="img('./img/home6.jpg')">
+      <img src="./img/home1.jpg" alt="" class="slide" onclick="img('./img/home1.jpg')">
+      <img src="./img/anh8.png" alt="" class="slide" onclick="img('./img/anh8.png')">
+    </div>
+  </div>
+</div>
+
+
+<section class="book">
+  <div class="container flex">
+    <div class="input grid">
+      <div class="box">
+        <label>Check-in:</label>
+        <i class="fa-regular fa-calendar-days"></i>
+        <input id="myID" placeholder="Check-in-Date">
+      </div>
+      <div class="box">
+        <label>Check-out:</label>
+        <i class="fa-regular fa-calendar-days"></i>
+        <input id="myID" placeholder="Check-out-Date">
+      </div>
+      <div class="box">
+        <label>Người lớn: </label>
+        <i class="fa-solid fa-person"></i>
+        <input type="number" placeholder="0" min="0" max="10">
+      </div>
+      <div class="box">
+        <label>Trẻ em:</label>
+        <i class="fa-solid fa-child"></i>
+        <input type="number" placeholder="0" min="0" max="10">
+      </div>
+    </div>
+    <div class="search">
+      <input type="submit" value="SEARCH">
+    </div>
+  </div>
+</section>
+
+
+<div class="about">
+  {{> about}}
+</div>
+
+<div class="contact">
+  {{> contact}}
+</div>
+ 
+<script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+<script>
+  function img(anything) {
+    document.querySelector('.slide').src = anything;
+  }
+  function change(change) {
+    const line = document.querySelector('.image');
+    line.style.background = change;
+  }
+
+  $('#success-alert').slideDown(function () {
+    $('#success-alert').fadeIn(300).delay(3000).fadeOut(400);
+  });
+
+  $('#error-alert').slideDown(function () {
+    $('#error-alert').fadeIn(300).delay(3000).fadeOut(400);
+  });
+
+  flatpickr("#myID", {  
+    dateFormat: "d-m-Y"
+  })
+</script>

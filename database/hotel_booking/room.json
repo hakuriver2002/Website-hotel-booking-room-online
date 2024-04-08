@@ -1,0 +1,329 @@
+[{
+  "_id": {
+    "$oid": "6441639e66cc0951fa3b858a"
+  },
+  "room_name": "P4nthers Standard 1",
+  "room_code": "308",
+  "room_type": {
+    "$oid": "6441fc18a39b1cb43d3eca1a"
+  },
+  "floor": 3,
+  "price": 652880,
+  "adult": 1,
+  "children": 0,
+  "acreage": 70,
+  "thumbnail": "room-203.jpg",
+  "tag": [
+    "1",
+    "3"
+  ],
+  "status": "reserved",
+  "created_at": {
+    "$date": "2023-04-22T03:49:18.013Z"
+  },
+  "updated_at": {
+    "$date": "2023-04-22T15:13:32.886Z"
+  },
+  "__v": 0,
+  "description": ""
+},{
+  "_id": {
+    "$oid": "6443e40f5bddbc59612c5ebb"
+  },
+  "room_name": "P4nthers 1 Standard",
+  "room_code": "201",
+  "room_type": {
+    "$oid": "6441fc18a39b1cb43d3eca1a"
+  },
+  "floor": 2,
+  "price": 1500000,
+  "adult": 2,
+  "children": 0,
+  "acreage": 35,
+  "thumbnail": "room-201.jpg",
+  "tag": [
+    "1"
+  ],
+  "status": "avaliable",
+  "description": "<p>Standard Room là một loại phòng tiêu chuẩn và phổ biến trong khách sạn, được thiết kế để đáp ứng nhu cầu cơ bản của du khách. Phòng thường có diện tích từ 20 đến 30 mét vuông và được trang bị đầy đủ các tiện nghi cơ bản.</p>",
+  "created_at": {
+    "$date": "2023-04-22T13:41:35.675Z"
+  },
+  "updated_at": {
+    "$date": "2023-04-22T16:18:45.534Z"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "6443e4425bddbc59612c5ec8"
+  },
+  "room_name": "P4nthers 2 Delexu ",
+  "room_code": "601",
+  "room_type": {
+    "$oid": "6441fc23a39b1cb43d3eca20"
+  },
+  "floor": 6,
+  "price": 2500000,
+  "adult": 2,
+  "children": 2,
+  "acreage": 60,
+  "thumbnail": "room-601.jpg",
+  "tag": [
+    "2"
+  ],
+  "status": "reserved",
+  "description": "<p>Delexu Room là một loại phòng cao cấp trong khách sạn, thường có diện tích rộng hơn so với các loại phòng khác. Nó được thiết kế với nội thất sang trọng và tiện nghi đầy đủ nhằm mang đến trải nghiệm nghỉ dưỡng đẳng cấp cho khách hàng.</p>",
+  "created_at": {
+    "$date": "2023-04-22T13:42:26.913Z"
+  },
+  "updated_at": {
+    "$date": "2023-04-22T16:08:08.204Z"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "6443e4885bddbc59612c5edf"
+  },
+  "room_name": "P4nthers 3 Suite",
+  "room_code": "501",
+  "room_type": {
+    "$oid": "6441fc32a39b1cb43d3eca26"
+  },
+  "floor": 5,
+  "price": 7300000,
+  "adult": 4,
+  "children": 4,
+  "acreage": 120,
+  "thumbnail": "room-501.jpg",
+  "tag": [
+    "5"
+  ],
+  "status": "avaliable",
+  "description": "<p>Phòng Suite là một phòng sang trọng và rộng rãi trong một khách sạn hoặc khu nghỉ dưỡng, thường được thiết kế để ở trong thời gian dài hoặc các dịp đặc biệt. Những phòng này thường có một khu vực phòng khách riêng biệt, phòng ngủ và phòng tắm, cung cấp đủ không gian và sự riêng tư cho khách.</p>",
+  "created_at": {
+    "$date": "2023-04-22T13:43:36.243Z"
+  },
+  "updated_at": {
+    "$date": "2023-04-22T16:18:58.717Z"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "6443e4b35bddbc59612c5ef7"
+  },
+  "room_name": "Standard Kijjoy",
+  "room_code": "202",
+  "room_type": {
+    "$oid": "6441fc18a39b1cb43d3eca1a"
+  },
+  "floor": 2,
+  "price": 900000,
+  "adult": 0,
+  "children": 0,
+  "acreage": 27,
+  "thumbnail": "room-202.jpg",
+  "tag": [
+    "1"
+  ],
+  "status": "avaliable",
+  "description": "<p>Standard Room là một loại phòng tiêu chuẩn và phổ biến trong khách sạn, được thiết kế để đáp ứng nhu cầu cơ bản của du khách. Phòng thường có diện tích từ 20 đến 30 mét vuông và được trang bị đầy đủ các tiện nghi cơ bản.</p>",
+  "created_at": {
+    "$date": "2023-04-22T13:44:19.087Z"
+  },
+  "updated_at": {
+    "$date": "2023-04-22T16:19:15.700Z"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "6443e4d95bddbc59612c5f04"
+  },
+  "room_name": "Standard Mind",
+  "room_code": "203",
+  "room_type": {
+    "$oid": "6441fc18a39b1cb43d3eca1a"
+  },
+  "floor": 2,
+  "price": 1290000,
+  "adult": 2,
+  "children": 0,
+  "acreage": 34,
+  "thumbnail": "room-203.jpg",
+  "tag": [
+    "2"
+  ],
+  "status": "reserved",
+  "description": "<p>Standard Room là một loại phòng tiêu chuẩn và phổ biến trong khách sạn, được thiết kế để đáp ứng nhu cầu cơ bản của du khách. Phòng thường có diện tích từ 20 đến 30 mét vuông và được trang bị đầy đủ các tiện nghi cơ bản.</p>",
+  "created_at": {
+    "$date": "2023-04-22T13:44:57.290Z"
+  },
+  "updated_at": {
+    "$date": "2023-04-22T16:05:46.196Z"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "6443e5055bddbc59612c5f1c"
+  },
+  "room_name": "Deluxe Mind",
+  "room_code": "602",
+  "room_type": {
+    "$oid": "6441fc23a39b1cb43d3eca20"
+  },
+  "floor": 6,
+  "price": 3800000,
+  "adult": 2,
+  "children": 2,
+  "acreage": 72,
+  "thumbnail": "room-602.jpg",
+  "tag": [
+    "2"
+  ],
+  "status": "avaliable",
+  "description": "<p>Delexu Room là một loại phòng cao cấp trong khách sạn, thường có diện tích rộng hơn so với các loại phòng khác. Nó được thiết kế với nội thất sang trọng và tiện nghi đầy đủ nhằm mang đến trải nghiệm nghỉ dưỡng đẳng cấp cho khách hàng.</p>",
+  "created_at": {
+    "$date": "2023-04-22T13:45:41.820Z"
+  },
+  "updated_at": {
+    "$date": "2023-04-22T16:19:32.170Z"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "6443e52d5bddbc59612c5f29"
+  },
+  "room_name": "Deluxe Thers",
+  "room_code": "603",
+  "room_type": {
+    "$oid": "6441fc23a39b1cb43d3eca20"
+  },
+  "floor": 6,
+  "price": 4299000,
+  "adult": 0,
+  "children": 0,
+  "acreage": 89,
+  "thumbnail": "room-603.jpg",
+  "tag": [
+    "3"
+  ],
+  "status": "reserved",
+  "description": "<p>Delexu Room là một loại phòng cao cấp trong khách sạn, thường có diện tích rộng hơn so với các loại phòng khác. Nó được thiết kế với nội thất sang trọng và tiện nghi đầy đủ nhằm mang đến trải nghiệm nghỉ dưỡng đẳng cấp cho khách hàng.</p>",
+  "created_at": {
+    "$date": "2023-04-22T13:46:21.803Z"
+  },
+  "updated_at": {
+    "$date": "2023-04-22T16:06:01.044Z"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "6443e55b5bddbc59612c5f41"
+  },
+  "room_name": "Suite Mind",
+  "room_code": "401",
+  "room_type": {
+    "$oid": "6441fc32a39b1cb43d3eca26"
+  },
+  "floor": 4,
+  "price": 12999000,
+  "adult": 8,
+  "children": 4,
+  "acreage": 190,
+  "thumbnail": "room-401.jpg",
+  "tag": [
+    "5"
+  ],
+  "status": "avaliable",
+  "description": "<p>Phòng Suite là một phòng sang trọng và rộng rãi trong một khách sạn hoặc khu nghỉ dưỡng, thường được thiết kế để ở trong thời gian dài hoặc các dịp đặc biệt. Những phòng này thường có một khu vực phòng khách riêng biệt, phòng ngủ và phòng tắm, cung cấp đủ không gian và sự riêng tư cho khách</p>",
+  "created_at": {
+    "$date": "2023-04-22T13:47:07.789Z"
+  },
+  "updated_at": {
+    "$date": "2023-04-22T16:06:33.924Z"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "6443e5d25bddbc59612c5f5e"
+  },
+  "room_name": "Suite President",
+  "room_code": "301",
+  "room_type": {
+    "$oid": "6441fc32a39b1cb43d3eca26"
+  },
+  "floor": 3,
+  "price": 17999000,
+  "adult": 8,
+  "children": 4,
+  "acreage": 250,
+  "thumbnail": "room-301.jpg",
+  "tag": [
+    "6"
+  ],
+  "status": "reserved",
+  "description": "<p>Phòng Tổng thống là loại phòng cao cấp và sang trọng nhất trong khách sạn hoặc resort. Nó được thiết kế với diện tích rộng rãi, bố trí nội thất đẳng cấp và tiện nghi đầy đủ như hồ bơi riêng, phòng tập gym, phòng họp, sảnh riêng.</p>",
+  "created_at": {
+    "$date": "2023-04-22T13:49:06.626Z"
+  },
+  "updated_at": {
+    "$date": "2023-04-22T16:06:49.804Z"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "64440d936dda128110480987"
+  },
+  "room_name": "Luxury Suite",
+  "room_code": "208",
+  "room_type": {
+    "$oid": "6441fc32a39b1cb43d3eca26"
+  },
+  "floor": 2,
+  "price": 1992000,
+  "adult": 6,
+  "children": 3,
+  "acreage": 75,
+  "thumbnail": "room-208.jpg",
+  "tag": [
+    "2",
+    "3",
+    "4"
+  ],
+  "status": "avaliable",
+  "description": "",
+  "created_at": {
+    "$date": "2023-04-22T16:38:43.136Z"
+  },
+  "updated_at": {
+    "$date": "2023-04-22T16:38:43.139Z"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "64440dbf6dda128110480993"
+  },
+  "room_name": "Panther Room ST",
+  "room_code": "402",
+  "room_type": {
+    "$oid": "6441fc18a39b1cb43d3eca1a"
+  },
+  "floor": 4,
+  "price": 669000,
+  "adult": 2,
+  "children": 0,
+  "acreage": 35,
+  "thumbnail": "room-402.jpg",
+  "tag": [
+    "2",
+    "3"
+  ],
+  "status": "avaliable",
+  "description": "",
+  "created_at": {
+    "$date": "2023-04-22T16:39:27.787Z"
+  },
+  "updated_at": {
+    "$date": "2023-04-22T16:39:27.788Z"
+  },
+  "__v": 0
+}]

@@ -1,0 +1,169 @@
+<!--Main Navigation-->
+<header>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-white bg-white fixed-top shadow-sm bg-body" id="main-navbar">
+        <!-- Container wrapper -->
+        <div class="container-fluid">
+            <!-- Toggle button -->
+            <button aria-controls="sidebarMenu" aria-expanded="false" aria-label="Toggle navigation"
+                class="navbar-toggler" data-bs-target="#sidebarMenu" data-bs-toggle="collapse" type="button">
+                <i class="fas fa-bars"></i>
+            </button>
+
+            <!-- Brand -->
+            <a class="navbar-brand" href="/admin/">
+                <img src="img/logo1.png" class="img-fluid" style="max-height: 48px;" alt="Logo">
+            </a>
+            <!-- Search form -->
+            <form class="d-none d-md-flex input-group w-auto my-auto">
+                <input autocomplete="off" class="form-control" style="min-width: 225px;" type="search" />
+                <button class="btn btn-secondary border-0"><i class="fas fa-search"></i></button>
+            </form>
+
+            <!-- Right links -->
+            <ul class="navbar-nav ms-auto d-flex flex-row">
+                <!-- Notification -->
+                <li class="nav-item mx-1">
+                    <a aria-expanded="false" class="nav-link notifications me-3 me-lg-0" href="#">
+                        <i class="fas fa-bell text-muted"></i>
+                        <span class="badge rounded-pill badge-notification bg-danger">1</span>
+                    </a>
+                </li>
+
+                <!-- Message -->
+                <li class="nav-item mx-1">
+                    <a aria-expanded="false" class="nav-link messages me-3 me-lg-0" href="#">
+                        <i class="fas fa-envelope text-muted"></i>
+                        <span class="badge rounded-pill badge-notification bg-danger">1</span>
+                    </a>
+                </li>
+
+                <!-- Icon -->
+                <li class="nav-item mx-1">
+                    <a class="nav-link me-3 me-lg-0" href="#">
+                        <i class="fas fa-fill-drip text-muted"></i>
+                    </a>
+                </li>
+                <!-- Icon -->
+                <li class="nav-item">
+                    <a class="nav-link me-3 me-lg-0" href="#">
+                        <i class="fab fa-github text-muted"></i>
+                    </a>
+                </li>
+
+                <!-- Avatar -->
+                <li class="nav-item dropdown">
+                    <a aria-expanded="false" class="nav-link dropdown-toggle hidden-arrow d-flex align-items-center"
+                        data-bs-toggle="dropdown" href="#" id="avatarDropdown" role="button">
+                        <img alt="Avatar" class="rounded-circle" height="22" loading="lazy"
+                            src="https://i.pinimg.com/474x/60/b4/7e/60b47e2dfdbe3f0e2adf74129fbea3b0.jpg" />
+                    </a>
+                    <ul aria-labelledby="avatarDropdown" class="dropdown-menu dropdown-menu-end">
+                        <li>
+
+                            <a href="#" class="dropdown-item"><i class="fas fa-user-alt me-2"></i> Profile</a>
+                        </li>
+                        <li>
+                            <a href="#" class="dropdown-item"><i class="fas fa-calendar-alt me-2"></i> Calendar</a>
+                            </li>
+
+                        <li>
+                            <a href="#" class="dropdown-item"><i class="fas fa-sliders-h me-2"></i> Settings</a>
+                        </li>
+
+                        <li class="dropdown-divider"></li>
+                        <li>
+                            <a href="/admin/logout" class="dropdown-item"><i class="fas fa-sign-out-alt me-2"></i> Logout</a>
+                        </li>
+
+                    </ul>
+                </li>
+            </ul>
+        </div>
+        <!-- Container wrapper -->
+    </nav>
+    <!-- Navbar -->
+
+</header>
+<!--Main Navigation-->
+
+<!-- Sidebar -->
+<nav class="collapse d-lg-block sidebar collapse bg-white mt-3" id="sidebarMenu">
+    <div class="position-sticky p-3 mb-4">
+        <div class="list-group list-group-flush mb-3">
+            <a aria-current="true" class="list-group-item list-group-item-action py-2 ripple active" id="dashboard"
+                href="/admin/dashboard">
+                <i class="fas fa-tachometer-alt fa-fw me-3"></i><span>Trang điều khiển</span></a>
+        </div>
+
+        <h6 class="text-uppercase mb-3">Quản lý tài khoản</h6>
+        <div class="list-group list-group-flush mb-3">
+            <a class="list-group-item list-group-item-action py-2 ripple" id="customers" href="/admin/customers">
+                <i class="fas fa-users fa-fw me-3"></i><span>Khách hàng</span></a>
+
+            <a class="list-group-item list-group-item-action py-2 ripple" id="role" href="#">
+                <i class="fas fa-users-cog fa-fw me-3"></i><span>Phân quyền</span></a>
+        </div>
+
+        <h6 class="text-uppercase mb-3">Quản lý phòng</h6>
+        <div class="list-group list-group-flush mb-3">
+            <a class="list-group-item list-group-item-action py-2 ripple" id="room_types" href="/admin/room_types">
+                <i class="fas fa-tags fa-fw me-3"></i><span>Loại phòng</span></a>
+
+            <a class="list-group-item list-group-item-action py-2 ripple" id="rooms" href="/admin/rooms">
+                <i class="fas fa-hotel fa-fw me-3"></i><span>Phòng</span></a>
+
+            <a class="list-group-item list-group-item-action py-2 ripple" id="service" href="#">
+                <i class="fas fa-concierge-bell fa-fw me-3"></i><span>Dịch vụ</span></a>
+        </div>
+
+        <h6 class="text-uppercase mb-3">Quản lý đơn phòng</h6>
+        <div class="list-group list-group-flush mb-3">
+            <a class="list-group-item list-group-item-action py-2 ripple" id="orders" href="/admin/orders">
+                <i class="fas fa-tasks fa-fw me-3"></i><span>Quản lý đặt phòng</span></a>
+        </div>
+
+        <h6 class="text-uppercase mb-3">Chức năng khác</h6>
+        <div class="list-group list-group-flush mb-3">
+            <a class="list-group-item list-group-item-action py-2 ripple" id="report" href="#">
+                <i class="fas fa-chart-area fa-fw me-3"></i><span>Báo cáo</span></a>
+
+            <a class="list-group-item list-group-item-action py-2 ripple" id="password" href="#">
+                <i class="fas fa-lock fa-fw me-3"></i><span>Mật khẩu</span></a>
+
+            <a class="list-group-item list-group-item-action py-2 ripple" id="calendar" href="/admin/calendar">
+                <i class="fas fa-calendar fa-fw me-3"></i><span>Lịch</span></a>
+        </div>
+    </div>
+</nav>
+<!-- Sidebar -->
+
+<script>
+    function setActiveMenu() {
+        const currentPage = window.location.pathname.split('/').pop().split('.')[0];
+        const customerPage =  window.location.pathname.split('/').indexOf('customers') > -1;
+        const roomPage =  window.location.pathname.split('/').indexOf('rooms') > -1;
+        const calendarPage =  window.location.pathname.split('/').indexOf('calendar') > -1;
+        const orderPage =  window.location.pathname.split('/').indexOf('orders') > -1;
+
+        const menuItems = document.querySelectorAll('.sidebar a');
+
+        for (const item of menuItems) {
+            if (item.id === currentPage) {
+                item.classList.add('active');
+            } else if (item.id === 'customers' && customerPage) {
+                item.classList.add('active');
+            } else if (item.id === 'rooms' && roomPage) {
+                item.classList.add('active');
+            } else if (item.id === 'calendar' && calendarPage) {
+                item.classList.add('active');
+            } else if (item.id === 'orders' && orderPage) {
+                item.classList.add('active');
+            } else {
+                item.classList.remove('active');
+            }
+        }
+    }
+
+    setActiveMenu();
+</script>

@@ -1,0 +1,19 @@
+.footer{
+    background-color: #5f5743;
+    color: rgb(211, 220, 228);
+}
+
+.row{
+    .col-md-4{
+        li{
+            margin-top: 5px;
+        }
+        a{
+            color: rgb(221, 221, 221);
+            text-decoration: none;
+        }
+        a:hover{
+            color: #FAD246;
+        }
+    }
+}

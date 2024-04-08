@@ -1,0 +1,197 @@
+<div class="container-xl">
+    {{#with bookRoom}}
+
+    <div class="row">
+        <div class="col-sm-6 d-flex align-items-center">
+            <a class="btn shadow p-3 mb-4 bg-body rounded" href="#">
+                <img class="img-flud" style="max-height: 26px;" src="img/icons/receipt.png">
+            </a>
+            <div class="px-4">
+                <h5>Chi tiết Đơn đặt phòng <strong>#{{ book_id }}</strong></h5>
+                <p class="text-muted">Order information</p>
+            </div>
+        </div>
+        <div class="col-sm-6 d-flex align-items-center justify-content-end">
+            <a href="." class="btn btn-secondary d-flex align-items-center rounded mx-1"
+                data-toggle="tooltip" title="Quay về trang quản lý"> 
+                <i class="fas fa-chevron-circle-left me-2"></i><span>Quay lại</span>
+            </a>
+        </div>
+    </div>
+
+    <form method="post" action="{{book_id}}">
+    <div class="row gutters table-responsive bg-body shadow rounded pt-2 px-4">          
+        <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12 col-12">
+            <div class="card h-100">
+                <div class="card-body">
+                    <div class="row gutters">
+                        <div class="col-12">
+                            <h6 class="mb-3 text-primary">Thông tin đơn đặt </h6>
+                        </div>
+                        <ul class="list-group mb-3">
+                            <li class="list-group-item d-flex justify-content-between">Mã đơn đặt phòng:
+                                <strong>{{book_id}}</strong>
+                            </li>
+                            <li class="list-group-item d-flex justify-content-between">Ngày thực hiện đặt phòng:
+                                <strong class="time">{{transaction_date}}</strong>
+                            </li>
+                            <li class="list-group-item d-flex justify-content-between">Ngày nhận phòng:
+                                <strong class="time">{{checkin}}</strong>
+                            </li>
+                            <li class="list-group-item d-flex justify-content-between">Ngày trả phòng:
+                                <strong class="time">{{checkout}}</strong>
+                            </li>
+                            <li class="list-group-item d-flex justify-content-between">Số người lớn:
+                                <strong>{{adult}}</strong>
+                            </li>
+                            <li class="list-group-item d-flex justify-content-between">Số trẻ em:
+                                <strong>{{children}}</strong>
+                            </li>
+                        </ul>
+
+                        <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12 mb-3">
+                            <label class="form-label text-warning" for="status_booking">Trạng thái đơn đặt</label>
+                            <select class="form-select" id="status_booking" name="status_booking">
+                                <option value="pending">Chờ xác nhận</option>
+                                <option value="confirmed">Đã xác nhận</option>
+                                <option value="canceled">Đã hủy</option>
+                                <option value="checkin">Đã nhận phòng</option>
+                                <option value="checkout">Đã trả phòng</option>
+                            </select>
+                        </div>
+                        <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12 mb-3">
+                            <label class="form-label text-warning" for="status_payment">Trạng thái thanh toán</label>
+                            <select class="form-select" id="status_payment" name="status_payment">
+                                <option value="pending">Chờ xác nhận</option>
+                                <option value="paid">Đã thanh toán</option>
+                                <option value="unpaid">Chưa thanh toán</option>
+                                <option value="refund">Đã hoàn trả</option>
+                            </select>
+                        </div>
+                    </div>
+                
+                </div>
+            </div>
+        </div>
+        <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12 col-12">
+            <div class="card h-100">
+                <div class="card-body">
+                    <div class="col-12">
+                        <h6 class="mb-3 text-primary">Thông tin khách hàng </h6>
+                    </div>
+                    <ul class="list-group mb-3">
+                        <li class="list-group-item d-flex justify-content-between">Tài khoản:
+                            <strong>{{username}}</strong>
+                        </li>
+                        <li class="list-group-item d-flex justify-content-between">Họ và tên:
+                            <strong>{{fullname}}</strong>
+                        </li>
+                        <li class="list-group-item d-flex justify-content-between">Email:
+                            <strong>{{email}}</strong>
+                        </li>
+                        <li class="list-group-item d-flex justify-content-between">Số điện thoại:
+                            <strong>{{phone}}</strong>
+                        </li>
+                        <li class="list-group-item d-flex justify-content-between">Phương thức thanh toán:
+                            {{#ifeq payment "credit-card"}}
+                            <strong class="text-success">Thẻ tín dụng </strong>
+                            {{/ifeq}}
+                            {{#ifeq payment "face-to-face"}}
+                            <strong class="text-success">Thanh toán trực tiếp </strong>
+                            {{/ifeq}}
+                            {{#ifeq payment "bank-transfer"}}
+                            <strong class="text-success">Chuyển khoản ngân hàng </strong>
+                            {{/ifeq}}
+                            {{#ifeq payment "paypal"}}
+                            <strong class="text-success">Paypal </strong>
+                            {{/ifeq}}
+                        </li>
+                        <li class="list-group-item d-flex justify-content-between">Tổng tiền:
+                            <strong class="text-danger" id="totalPrice">{{price}}</strong>
+                        </li>
+                    </ul>
+                    <div class="row gutters" style="margin-top: 27px;">
+                        <div class="col-12  mt-4">
+                            <div class="d-flex justify-content-start">
+                                <button class="btn btn-warning text-white" type="submit">
+                                    <i class="fas fa-edit me-2" style="font-size: small;"></i><span>Cập nhật</span>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+    {{/with}}
+        <div class="p-3">
+            <h6 class="mb-3 ml-3 text-primary">Thông tin phòng đặt </h6>
+            <table class="table table-striped" id="myTable">
+                <thead>
+                    <tr>
+                        <th>Mã phòng</th>
+                        <th>Tên phòng</th>
+                        <th>Giá</th>
+                        <th>Vị trí phòng</th>
+                    </tr>
+                </thead>
+                {{#with room}}
+                <tbody>
+                    <tr>
+                        <td>{{ room_code }}</td>
+                        <td>{{ room_name }}</td>
+                        <td class="price">{{ price }}</td>
+                        <td>Tầng {{ floor }}</td>
+                    </tr>
+                </tbody>
+                {{/with}}
+            </table>
+        </div>
+    </div>
+    </form>
+</div>
+
+<script>
+    $(document).ready(function () {
+        $('[data-toggle="tooltip"]').tooltip();
+
+        const time = document.querySelectorAll('.time');
+        for (let i = 0; i < time.length; i++) {
+            const d = new Date(time[i].innerHTML);
+            const datestring = d.getHours() + ":" + d.getMinutes() + " | " + 
+                            d.getDate()  + "/" + (d.getMonth()+1) + "/" + d.getFullYear();
+            time[i].setAttribute('style', 'line-height: 1.6;');
+            time[i].innerHTML = datestring;
+        }
+
+        let VND =new Intl.NumberFormat('vi-VN', {style: 'currency', currency: 'VND'});
+
+        let y = document.getElementById("totalPrice");
+        let price = Number(y.innerHTML);
+        y.innerHTML = VND.format(price);
+
+        const status_booking = `{{ bookRoom.status_booking }}`;
+        $('#status_booking').children('option').each(function () {
+            if ($(this).val() === status_booking) {
+                $(this).attr('selected', true);
+            } else {
+                $(this).selected = false;
+            }
+        })
+
+        const status_payment = `{{ bookRoom.status_payment }}`;
+        $('#status_payment').children('option').each(function () {
+            if ($(this).val() === status_payment) {
+                $(this).attr('selected', true);
+            } else {
+                $(this).selected = false;
+            }
+        })
+    });
+
+    ClassicEditor
+        .create(document.querySelector('#description'))
+        .catch(error => {
+            console.error( error );
+        });
+</script>

@@ -1,0 +1,304 @@
+<div class="container-xl">
+    <div class="row">
+        <div class="col-sm-6 d-flex align-items-center">
+            <a class="btn shadow p-3 mb-4 bg-body rounded" href="#">
+                <img class="img-flud" style="max-height: 26px;" src="img/icons/icons8-room-64.png">
+            </a>
+            <div class="px-4">
+                <h5>Cập nhật thông tin phòng</h5>
+                <p class="text-muted">Update information</p>
+            </div>
+        </div>
+        <div class="col-sm-6 d-flex align-items-center justify-content-end">
+            <a href="." class="btn btn-secondary d-flex align-items-center rounded mx-1"
+                data-toggle="tooltip" title="Quay về trang quản lý"> 
+                <i class="fas fa-chevron-circle-left me-2"></i><span>Quay lại</span>
+            </a>
+        </div>
+    </div>
+
+    
+    {{!-- {{#if room}} --}}
+    <form method="post" action="./{{ room.room_code }}" enctype="multipart/form-data">
+        <div class="row gutters table-responsive bg-body shadow rounded pt-2 px-4">          
+            <div class="col-xl-8 col-lg-8 col-md-12 col-sm-12 col-12">
+                <div class="card h-100">
+                    <div class="card-body">
+                        <div class="row gutters">
+                            <div class="col-12">
+                                <h6 class="mb-2 text-primary">Tạo mới phòng</h6>
+                            </div>
+                            <div class="col-xl-7 col-lg-7 col-md-7 col-sm-7 col-12">
+                                <div class="mb-3">
+                                    <label class="form-label" for="room_name">Tên Phòng</label>
+                                    <input type="text" class="form-control" id="room_name" name="room_name" 
+                                        value="{{ room.room_name }}" required>
+                                </div>
+                            </div>
+                            <div class="col-xl-5 col-lg-5 col-md-5 col-sm-5 col-12">
+                                <div class="mb-3">
+                                    <label class="form-label" for="room_type">Loại Phòng</label>
+                                    <select class="form-select" id="room_type" name="room_type">
+                                        {{#each room_types}}
+                                        <option value={{id}}> {{ name }} </option>
+                                        {{/each}}
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-xl-4 col-lg-4 col-md-4 col-sm-4 col-12">
+                                <div class="mb-3">
+                                    <label class="form-label" for="status">Hiện trạng</label>
+                                    <select class="form-select" id="status" name="status">
+                                        <option value="avaliable" selected> Còn trống </option>
+                                        <option value="unavaliable"> Đang sửa chữa  </option>
+                                        <option value="reserved"> Đã được sử dụng </option>
+                                    </select>
+                                </div>
+                            </div>
+                            
+                            <div class="col-xl-5 col-lg-5 col-md-5 col-sm-5 col-12">
+                                <div class="mb-3">
+                                    <label class="form-label" for="price">Giá Phòng</label>
+                                    <input type="number" class="form-control" id="price" name="price" 
+                                        value="{{ room.price }}">
+                                </div>
+                            </div>
+                            <div class="col-xl-3 col-lg-3 col-md-3 col-sm-3 col-12 mb-3">
+                                <label class="form-label" for="acreage">Diện Tích Phòng</label>
+                                <div class="input-group">
+                                    <input type="number" class="form-control" id="acreage" name="acreage" min="0" step="0.1"
+                                        value="{{ room.acreage }}">
+                                    <span class="input-group-text">m&sup2</span>
+                                </div>
+                            </div>
+                            <div class="col-xl-3 col-lg-3 col-md-3 col-sm-3 col-12">
+                                <label class="form-label" for="adult">Số Người Lớn</label>
+                                <div class="input-group">
+                                    <input type="number" class="form-control" id="adult" name="adult" min="0"
+                                        value="{{ room.adult }}">
+                                    <span class="input-group-text"><i class="fas fa-child"></i></span>
+                                </div>
+                            </div>
+                            <div class="col-xl-3 col-lg-3 col-md-3 col-sm-3 col-12">
+                                <label class="form-label" for="children">Số Trẻ Em</label>
+                                <div class="input-group">
+                                    <input type="number" class="form-control" id="children" name="children" min="0"
+                                        value="{{ room.children }}">
+                                    <span class="input-group-text"><i class="fas fa-child"></i></span>
+                                </div>
+                            </div>
+                            <div class="col-xl-3 col-lg-3 col-md-3 col-sm-3 col-12">
+                                <div class="mb-3">
+                                    <label class="form-label" for="floor">Vị trí</label>
+                                    <select class="form-select" id="floor" name="floor"> required
+                                        <option selected>Chọn vị trí</option>
+                                        <option value=1> Tầng 1 </option>
+                                        <option value=2> Tầng 2 </option>
+                                        <option value=3> Tầng 3 </option>
+                                        <option value=4> Tầng 4 </option>
+                                        <option value=5> Tầng 5 </option>
+                                        <option value=6> Tầng 6 </option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-xl-3 col-lg-3 col-md-3 col-sm-3 col-12">
+                                <label class="form-label" for="room_code">Mã phòng</label>
+                                    <select class="form-select" id="room_code" name="room_code">
+                                        <option value={{ room.room_code }} selected>{{ room.room_code }}</option>
+                                    </select>
+                            </div>
+                            <div class="col-xl-7 col-lg-7 col-md-7 col-sm-7 col-12 mb-3">
+                                <label class="form-label" for="tag">Nhãn</label>
+                                <select class="form-select" multiple id="tag" name="tag[]">
+                                    <option value="1">Phòng đơn</option>
+                                    <option value="2">Phòng đôi</option>
+                                    <option value="3">View đẹp</option>
+                                    <option value="4">Yên tĩnh</option>
+                                    <option value="5">Thoáng mát</option>
+                                    <option value="6">Thiết bị tiện nghi</option>
+                                </select>
+                            </div>
+                            <div class="col-xl-5 col-lg-5 col-md-5 col-sm-5 col-12 mb-2 row mt-2">
+                                <h6 id="updated_at"></h6>
+                            </div>
+                            <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 mb-3">
+                                <label for="description" class="form-label">Mô tả</label>
+                                <textarea class="form-control" id="description" rows="3" name="description">{{ room.description }}</textarea>
+                            </div>
+                        </div>
+                        <div class="row gutters mt-2">
+                            <div class="col-12">
+                                <div class="d-flex justify-content-start">
+                                    <button class="btn btn-warning text-white" type="submit">
+                                        <i class="fas fa-edit me-2"></i><span>Cập nhật</span>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xl-4 col-lg-4 col-md-12 col-sm-12 col-12">
+                <div class="card h-100">
+                    <div class="card-body">
+                        <div class="col-12">
+                            <h5>Ảnh đại diện</h5>
+                            <h6 class="mb-3 text-primary text-start">Chọn ảnh đại diện phòng</h6>
+                        </div>
+                        <div class="room-settings">
+                            <div class="room-profile">
+                                <div class="room-avatar">
+                                    {{#if room.thumbnail}}
+                                        <div class="image-area rounded" id="image-area"
+                                            onclick="document.getElementById('upload').click();">
+                                            <input id="upload" type="file" name="file_upload" onchange="readURL(this);" accept="image/*">
+                                            {{#noteq room.thumbnail ''}}
+                                            <img id="imageResult" src="uploads/room/{{ room.thumbnail }}" alt="" 
+                                                class="img-fluid rounded">
+                                            <input type="hidden" name="thumbnail" value="{{ room.thumbnail }}">
+                                            {{/noteq}}
+                                        </div>
+                                    {{else}}
+                                        <div class="image-area rounded" id="image-area" style="display: none;"
+                                            onclick="document.getElementById('upload').click();">
+                                            <input id="upload" type="file" name="file_upload" onchange="readURL(this);" accept="image/*">
+                                            <img id="imageResult" src="#" alt="" 
+                                                class="img-fluid rounded">
+                                        </div>
+                                        <div class="image-thumnail rounded" id="thumnail-area"
+                                            onclick="document.getElementById('upload').click();">
+                                            <img src="img/icons/photo.png" width="64px" height="64px" id="thumnail" alt="" class="img-fluid">
+                                        </div>
+                                    {{/if}}
+                                </div>
+                                <div class="title-change">
+                                    <h6 class="text-muted ">Click vào để thay đổi ảnh</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-12">
+                            <h5>Ảnh chi tiết phòng</h5>
+                            <h6 class="mb-3 text-primary text-start">Chọn ảnh chi tiết phòng</h6>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
+    {{!-- {{/if}}    --}}
+</div>
+
+<script>
+    $(document).ready(function () {
+        $('[data-toggle="tooltip"]').tooltip();
+
+        $('.btn-reset').on('click', function () {
+            $('#imageResult').attr('src', '');
+            $('#image-area').attr('style', 'display: none;');
+            $('#thumnail-area').attr('style', 'display: block;');
+        });
+        
+        const room_type = `{{ room.room_type }}`
+        $('#room_type').children('option').each(function () {
+            if ($(this).val() === room_type) {
+                $(this).attr('selected', true);
+            } else {
+                $(this).selected = false;
+            }
+        })
+
+        const status = `{{ room.status }}`;
+        $('#status').children('option').each(function () {
+            if ($(this).val() === status) {
+                $(this).attr('selected', true);
+            } else {
+                $(this).selected = false;
+            }
+        })
+
+        const floor = `{{ room.floor }}`
+        $('#floor').children('option').each(function () {
+            if ($(this).val() === floor) {
+                $(this).attr('selected', true);
+            } else {
+                $(this).selected = false;
+            }
+        })
+
+        const tag = new Array();
+        {{#each room.tag}}
+            tag.push(`{{ this }}`);
+        {{/each}}
+        $('#tag').children('option').each(function () {
+            if (tag.includes($(this).val())) {
+                $(this).attr('selected', true);
+            } else {
+                $(this).selected = false;
+            }
+        })
+
+        const selectFloor = document.getElementById('floor');
+        selectFloor.addEventListener('change', (ev) => {
+            $('#room_code').attr('disabled', false);
+            $('#floor').children('option').each(function () {
+                if ($(this).val() === ev.target.value) {
+                    $(this).attr('selected', true);
+                } else {
+                    $(this).selected = false;
+                }
+            })
+            $.ajax({
+                type: 'GET',
+                url: 'http://localhost:3030/admin/rooms/room_codes/' + ev.target.value,
+                success: function (data) {
+                    const selectRoomCode = document.getElementById("room_code");
+                    if (selectRoomCode.options.length > 0) {
+                        while (selectRoomCode.options.length > 0) {
+                            selectRoomCode.remove(0);
+                        }
+                    }
+                    for (let i = 0; i < data.length; i++) {
+                        $('#room_code').append(`<option value="${data[i]}">${data[i]}</option>`);
+                    }
+                },
+                error: function (err) {
+                    console.log(err);
+                }
+            })
+        })
+
+        const time = document.getElementById('updated_at');
+        const d =  new Date(`{{ room.updated_at }}`);
+        const datestring = d.getHours() + ":" + d.getMinutes() + " | " + 
+                        d.getDate()  + "/" + (d.getMonth()+1) + "/" + d.getFullYear();
+        time.setAttribute('style', 'line-height: 1.6;');
+        time.innerHTML = "Thời gian cập nhật lần cuối: <br>" + datestring;
+    });
+
+    function readURL(input) {
+        if (input.files && input.files[0]) {
+            var reader = new FileReader();
+
+            reader.onload = function (e) {
+                $('#imageResult').attr('src', e.target.result);
+                $('#image-area').attr('style', 'display: block;');
+                $('#thumnail-area').attr('style', 'display: none;');
+
+            };
+            reader.readAsDataURL(input.files[0]);
+        }
+    }
+
+    $(function () {
+        $('#upload').on('change', function () {
+            readURL(input);
+        });
+    });
+
+
+    ClassicEditor
+        .create(document.querySelector('#description'))
+        .catch(error => {
+            console.error( error );
+        });
+</script>

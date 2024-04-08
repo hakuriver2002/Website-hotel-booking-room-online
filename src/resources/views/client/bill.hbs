@@ -1,0 +1,112 @@
+<link rel="stylesheet" href="./css/bookroom.css">
+
+<div class="container p-5">
+    <h1 class="mb-4 text-center">{{nameBill}}</h1>
+    <h5 class="card-title mb-4">Tài khoản: {{username}}</h5>
+
+    <div class="card shadow-lg py-4 px-5">
+        <div class="card-body">
+            <h5 class="card-title mb-4">Hóa đơn: {{billId}} </h5>
+            <div class="row mb-3">
+                <div class="col-md-6">
+                    <div class="row">
+                        <div class="col-4 fw-bold mb-1">Khách hàng:</div>
+                        <div class="col-8 mb-0">{{name}}</div>
+                    </div>
+                </div>
+            </div>
+            <div class="row mb-3">
+                <div class="col-md-6">
+                    <div class="row">
+                        <div class="col-4 fw-bold mb-1">Số điện thoại:</div>
+                        <div class="col-8 mb-0">{{phone}}</div>
+                    </div>
+
+                </div>
+                <div class="col-md-6">
+                    <div class="row">
+                        <div class="col-4 fw-bold mb-1">Email:</div>
+                        <div class="col-8 mb-0">{{email}}</div>
+                    </div>
+                </div>
+            </div>
+            <div class="row mb-3">
+                <div class="col-md-6">
+                    <div class="row">
+                        <div class="col-4 fw-bold mb-1">Ngày check-in:</div>
+                        <div class="col-8 mb-0">{{checkin}}</div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="row">
+                        <div class="col-4 fw-bold mb-1">Ngày check-out:</div>
+                        <div class="col-8 mb-0">{{checkout}}</div>
+                    </div>
+                </div>
+            </div>
+            <div class="row mb-3">
+                <div class="col-md-6">
+                    <div class="row">
+                        <div class="col-4 fw-bold mb-1">Loại phòng:</div>
+                        <div class="col-8 mb-0 types">{{room_type}}</div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="row">
+                        <div class="col-4 fw-bold mb-1">Mã phòng:</div>
+                        <div class="col-8 mb-0">{{roomid}}</div>
+                    </div>
+                </div>
+            </div>
+            <div class="row mb-3">
+                <div class="col-md-6">
+                    <div class="row">
+                        <div class="col-4 fw-bold mb-1">Số người lớn:</div>
+                        <div class="col-8 mb-0">{{adults}}</div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="row">
+                        <div class="col-4 fw-bold mb-1">Số trẻ em:</div>
+                        <div class="col-8 mb-0">{{children}}</div>
+                    </div>
+                </div>
+            </div>
+            <div class="row mb-3">
+                <div class="col-md-6">
+                    <div class="row">
+                        <div class="col-4 fw-bold mb-1">Ghi chú:</div>
+                        <div class="col-8 mb-0">{{note}}</div>
+                    </div>
+                </div>
+            </div>
+            <div class="row mb-3">
+                <div class="col-md-6">
+                    <div class="row">
+                        <div class="col-4 fw-bold mb-1">Tổng tiền:</div>
+                        <div class="col-8 mb-0">{{price}} VNĐ</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Thêm hình ảnh vào đây -->
+            <div style="position: relative;">
+                <img src="/img/bill.png" style="position: absolute; bottom: 0; right: 0; max-width: 200px">
+            </div>
+
+        </div>
+    </div>
+</div>
+
+<script>
+    let x = document.querySelectorAll(".types");
+    let room_types = JSON.parse(`{{{json room_types }}}`);
+
+    for (let i = 0; i < x.length; i++) {
+        for (let j = 0; j < room_types.length; j++) {
+            if (room_types[j].id === x[i].innerHTML) {
+                x[i].innerHTML = room_types[j].name;
+            }
+        }
+    }
+</script>

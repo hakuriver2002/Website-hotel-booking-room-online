@@ -1,0 +1,162 @@
+<head>
+    <link rel="stylesheet" href="./css/contact.css">
+</head>
+<section class="about top" id="contact">
+    <div class="row">
+        <div class="col-md-6 mt-3">
+            <div class="heading">
+                <h2 class="text-center">Liên lạc với chúng tôi</h2>
+                {{!-- <h2>Welcome to Luviana Hotel Resort</h2> --}}
+                <p>Với đội ngũ nhân viên chuyên nghiệp và tận tình, khách sạn luôn sẵn sàng phục vụ khách hàng trong mọi
+                    yêu cầu. </p>
+                <div class="staff">
+                    <div class="accordionWrapper">
+                        <div class="accordionItem open">
+                            <h4 class="accordionIHeading">Đoàn Phương Nam</h4>
+                            <div class="accordionItemContent">
+                                <div>
+                                    <a href="https://www.facebook.com/Harry.2002s" target="_blank"
+                                        style="text-decoration: none;">
+                                        <i class="bi bi-facebook"> Namm </i>
+                                    </a>
+                                </div>
+
+                                <div>
+
+                                    <i class="bi bi-envelope-fill"></i>
+                                    <span class="ms-2">52000895@student.tdtu.edu.vn</span>
+
+                                </div>
+
+                                <div>
+
+                                    <i class="bi bi-telephone-fill"></i>
+                                    <span class="ms-2">0123456789</span>
+
+                                </div>
+
+                            </div>
+                        </div>
+                        <div class="accordionItem close">
+                            <h4 class="accordionIHeading">Trịnh Trường Duy</h4>
+                            <div class="accordionItemContent">
+                                <div>
+                                    <a href="https://www.facebook.com/truongduy119" target="_blank"
+                                        style="text-decoration: none;">
+                                        <i class="bi bi-facebook"> Trịnh Trường Duy </i>
+                                    </a>
+                                </div>
+
+                                <div>
+
+                                    <i class="bi bi-envelope-fill"></i>
+                                    <span class="ms-2">52000655@student.tdtu.edu.vn</span>
+
+                                </div>
+
+                                <div>
+
+                                    <i class="bi bi-telephone-fill"></i>
+                                    <span class="ms-2">0123456789</span>
+
+                                </div>
+                            </div>
+                        </div>
+                        <div class="accordionItem close">
+                            <h4 class="accordionIHeading">Trần Hoàng Quang Din</h4>
+                            <div class="accordionItemContent">
+                                <div>
+                                    <a href="https://www.facebook.com/diner262" target="_blank"
+                                        style="text-decoration: none;">
+                                        <i class="bi bi-facebook"> Din Trần </i>
+                                    </a>
+                                </div>
+
+                                <div>
+
+                                    <i class="bi bi-envelope-fill"></i>
+                                    <span class="ms-2">52000892@student.tdtu.edu.vn</span>
+
+                                </div>
+
+                                <div>
+
+                                    <i class="bi bi-telephone-fill"></i>
+                                    <span class="ms-2">0123456789</span>
+
+                                </div>
+                            </div>
+                        </div>
+                        <div class="accordionItem close">
+                            <h4 class="accordionIHeading">Trương Thị Ngân Trâm</h4>
+                            <div class="accordionItemContent">
+                                <div>
+                                    <a href="https://www.facebook.com/ngtramngu/" target="_blank"
+                                        style="text-decoration: none;">
+                                        <i class="bi bi-facebook"> Ngan Tram </i>
+                                    </a>
+                                </div>
+
+                                <div>
+
+                                    <i class="bi bi-envelope-fill"></i>
+                                    <span class="ms-2">52000722@student.tdtu.edu.vn</span>
+
+                                </div>
+
+                                <div>
+
+                                    <i class="bi bi-telephone-fill"></i>
+                                    <span class="ms-2">0123456789</span>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <p class="text-center">
+                    Đừng ngại liên lạc với chúng tôi ngay khi bạn có thắc mắc nhé!
+                </p>
+            </div>
+
+        </div>
+        <div class="col-md-6">
+            <div class="img p-3 mt-5">
+                <div class="row">
+                    <div class=" col-lg-6 mb-2 p-2">
+                        <img src="" class="img-fluid" alt="ảnh Duy Trịnh">
+                    </div>
+                    <div class=" col-lg-6 mb-2 p-2">
+                        <img src="" class="img-fluid" alt="ảnh Nam Đoàn">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-lg-6 p-2">
+                        <img src="" class="img-fluid" alt="ảnh Din Trần">
+                    </div>
+                    <div class="col-lg-6 p-2">
+                        <img src="" class="img-fluid" alt="ảnh Ngân Trâm">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<script>
+    var accItem = document.getElementsByClassName('accordionItem');
+    var accHD = document.getElementsByClassName('accordionIHeading');
+
+    for (i = 0; i < accHD.length; i++) {
+        accHD[i].addEventListener('click', toggleItem, false);
+    }
+
+    function toggleItem() {
+        var itemClass = this.parentNode.className;
+        for (var i = 0; i < accItem.length; i++) {
+            accItem[i].className = 'accordionItem close';
+        }
+        if (itemClass == 'accordionItem close') {
+            this.parentNode.className = 'accordionItem open';
+        }
+    }
+</script>

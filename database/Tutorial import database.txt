@@ -1,0 +1,8 @@
+Các bước để import file JSON sử dụng Robo 3T:
+
+B1. Mở Robo 3T (nếu chưa cài thì vào link sau https://robomongo.org) và thực hiện kết nối đến MongoDB server.
+B2. Chọn Collection để import và chọn "Import Collection" trên thanh công cụ.
+B3. Một hộp thoại được mở lên, ấn chọn "JSON" option ở dòng đầu tiên.
+B4. Lúc này một cửa sổ làm việc "JSON import" hiện lên, ấn chọn "Add source" để thêm dữ liệu.
+B5. Sau đó chọn các file JSON để import data.
+B6. Cuối cùng bấm nút Run để dữ liệu thêm vào Collection.

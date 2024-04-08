@@ -1,0 +1,463 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/index.css">
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src='https://cdn.firebase.com/js/client/2.2.1/firebase.js'></script>
+    <script src='https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js'></script>
+    <title>Trang chủ</title>
+</head>
+
+<body>
+    <script type="module">
+        import {
+            initializeApp
+        } from "https://www.gstatic.com/firebasejs/9.15.0/firebase-app.js";
+        import {
+            getAnalytics
+
+        } from "https://www.gstatic.com/firebasejs/9.15.0/firebase-analytics.js";
+        import {
+            getDatabase,
+            ref,
+            child,
+            remove,
+            set,
+            get
+        } from "https://www.gstatic.com/firebasejs/9.15.0/firebase-database.js";
+
+
+        const firebaseConfig = {
+            apiKey: "AIzaSyAwuPTJ5jplA02Gtr751-1HYxGTbPIot28",
+            authDomain: "qlsv-57e80.firebaseapp.com",
+            databaseURL: "https://qlsv-57e80-default-rtdb.firebaseio.com",
+            projectId: "qlsv-57e80",
+            storageBucket: "qlsv-57e80.appspot.com",
+            messagingSenderId: "575586005904",
+            appId: "1:575586005904:web:060915ccbbc2234d757915",
+            measurementId: "G-TK3F2V5JNJ"
+        };
+        // let create_row = require('./create_tr.js');
+
+
+        // import create_row from './create_tr.js';
+
+        function create_row(student) {
+            for (let mssv in student) {
+                if (student.hasOwnProperty(mssv)) {
+                    let row = document.createElement('tr');
+                    var table = document.getElementById('table-body');
+
+                    var idsv = document.createElement('td');
+                    var name = document.createElement('td');
+                    var ngaySinh = document.createElement('td');
+                    var gioiTinh = document.createElement('td');
+                    var diaChi = document.createElement('td');
+                    var thuocKhoa = document.createElement('td');
+                    var khoa = document.createElement('td');
+                    var diem = document.createElement('td');
+                    var hocBong = document.createElement('td');
+
+                    idsv.classList += "idField";
+                    name.classList += "nameField";
+                    thuocKhoa.classList += "thuocKhoaField";
+                    hocBong.classList += "hocBongField";
+                    gioiTinh.classList += "gioiTinhField";
+
+                    var tdbuttonE = document.createElement('td');
+                    var tdbuttonD = document.createElement('td');
+                    var buttonEdit = document.createElement('button');
+                    var buttonDelete = document.createElement('button');
+                    buttonEdit.classList.add("ri-edit-line", "edit");
+                    buttonDelete.classList.add("ri-delete-bin-line", "delete");
+
+                    tdbuttonE.appendChild(buttonEdit);
+                    tdbuttonD.appendChild(buttonDelete);
+
+
+                    buttonDelete.addEventListener('click', function() {
+                        var result = confirm("Bạn có chắc chắn xóa?");
+                        if (result) {
+                            remove(child(ref(database), `student/${mssv}`));
+                            alert("Xóa thành công");
+                            window.location.reload();
+                        }
+                    });
+
+
+                    idsv.innerHTML = mssv;
+                    name.innerHTML = student[mssv].tenSV;
+                    ngaySinh.innerHTML = student[mssv].ngaySinh;
+                    gioiTinh.innerHTML = student[mssv].gioiTinh;
+                    diaChi.innerHTML = student[mssv].diaChi;
+                    thuocKhoa.innerHTML = student[mssv].thuocKhoa;
+                    khoa.innerHTML = student[mssv].khoa;
+                    diem.innerHTML = student[mssv].diem;
+                    hocBong.innerHTML = student[mssv].hocbong;
+                    // console.log(student[mssv].hocBong);
+                    buttonEdit.addEventListener('click', function() {
+                        openForm(mssv, student[mssv].tenSV, student[mssv].ngaySinh, student[mssv].gioiTinh, student[mssv].diaChi, student[mssv].thuocKhoa, student[mssv].khoa, student[mssv].diem, student[mssv].hocbong);
+
+                    });
+                    if (student[mssv].hocbong == "Có") {
+                        hocBong.style.color = "green";
+                    } else if (student[mssv].hocbong == "Không") {
+                        hocBong.style.color = "red";
+                    } else {
+                        hocBong.style.color = "yellow";
+                    }
+
+
+                    row.appendChild(idsv);
+                    row.appendChild(name);
+                    row.appendChild(ngaySinh);
+                    row.appendChild(gioiTinh);
+                    row.appendChild(diaChi);
+                    row.appendChild(thuocKhoa);
+                    row.appendChild(khoa);
+                    row.appendChild(diem);
+                    row.appendChild(hocBong);
+                    row.appendChild(tdbuttonE);
+                    row.appendChild(tdbuttonD);
+
+
+                    table.appendChild(row);
+
+                }
+            }
+        };
+        // Initialize Firebase
+        const app = initializeApp(firebaseConfig);
+        const analytics = getAnalytics(app);
+        const database = getDatabase(app);
+
+        window.onload = function() {
+            loadData();
+        }
+        var category = document.getElementById('CategorySelected');
+        var searchInput = document.querySelector('#SearchBar');
+        var tbody = document.getElementById('table-body');
+        var buttonSearch = document.getElementById('buttonSearch');
+
+        function searchStudent(Cate, filter) {
+            var tr = tbody.getElementsByTagName("tr");
+            var found = false;
+            for (let i = 0; i < tr.length; i++) {
+                var td = tr[i].getElementsByClassName(Cate);
+                for (let j = 0; j < td.length; j++) {
+                    if (td[j].innerHTML.toUpperCase().indexOf(filter) > -1) {
+                        found = true;
+                    }
+                }
+                if (found) {
+                    tr[i].style.display = "table-row";
+                    found = false;
+                } else {
+                    tr[i].style.display = "none";
+                }
+            }
+        }
+        buttonSearch.onclick = function() {
+            var filter = document.getElementById('SearchBar').value.toUpperCase();
+
+            if (category.value == 0) {
+                searchStudent("idField", filter);
+            } else if (category.value == 1) {
+                searchStudent("nameField", filter);
+            } else if (category.value == 2) {
+                searchStudent("thuocKhoaField", filter);
+            } else if (category.value == 3) {
+                searchStudent("hocBongField", filter);
+            } else if (category.value == 4) {
+                searchStudent("gioiTinhField", filter);
+            }
+
+        }
+
+        function loadData() {
+            get(child(ref(database), `student`)).then((snapshot) => {
+                if (snapshot.exists()) {
+                    let student = snapshot.val();
+                    create_row(student);
+                    // console.log(student);
+
+                } else {
+                    console.log("Không có dữ liệu!");
+                }
+            }).catch((error) => {
+                console.error(error);
+            });
+
+        }
+
+        // Mở edit form
+        function openForm(mssvNew, tenSVNew, ngaySinhNew, gioiTinhNew, diaChiNew, thuocKhoaNew, khoaNew, diemNew, hocbongNew) {
+            let form = document.querySelector("form");
+            document.getElementById("myModal").style.display = "block";
+
+            document.getElementById("mssvNew").innerHTML = mssvNew;
+            document.getElementById("nameNew").value = tenSVNew;
+            document.getElementById("dayNew").value = ngaySinhNew;
+            document.getElementById("genderNew").value = gioiTinhNew;
+            document.getElementById("diachiNew").value = diaChiNew;
+            document.getElementById("falcutyNew").value = thuocKhoaNew;
+            document.getElementById("khoaNew").value = khoaNew;
+            document.getElementById("gpaNew").value = diemNew;
+            document.getElementById("hocbongNew").value = hocbongNew;
+
+            if (form.addEventListener('submit', function(e) {
+                    e.preventDefault();
+                    var name = document.getElementById("nameNew").value;
+                    var day = document.getElementById("dayNew").value;
+                    var gender = document.getElementById("genderNew").value;
+                    var address = document.getElementById("diachiNew").value;
+                    var falcuty = document.getElementById("falcutyNew").value;
+                    var khoa = document.getElementById("khoaNew").value;
+                    var diem = document.getElementById("gpaNew").value;
+                    var hocbong = document.getElementById("hocbongNew").value;
+
+                    InsertData(mssvNew, name, day, gender, address, khoa, falcuty, hocbong, diem);
+                }));
+
+
+        }
+
+        function InsertData(mssvNew, name, day, gender, address, khoa, falcuty, hocbong, diem) {
+            if (name == "" || day == "" || address == "" || diem == "") {
+                
+                return alert("Vui lòng nhập đầy đủ thông tin");
+                document.getElementById("myModal").style.display = "none";
+            } else {
+                set(ref(database, "student/" + mssvNew), {
+                        tenSV: name,
+                        ngaySinh: day,
+                        gioiTinh: gender,
+                        diaChi: address,
+                        khoa: khoa,
+                        thuocKhoa: falcuty,
+                        hocbong: hocbong,
+                        diem: diem
+                    }).then(() => {
+                        alert("Sửa thành công");
+                        window.location.reload();
+                    })
+                    .catch((error) => {
+                        alert(error);
+                    });
+            }
+            document.getElementById("myModal").style.display = "none";
+
+        }
+    </script>
+
+    <section class="header">
+        <div class="logo">
+            <i class="ri-menu-line icon icon-0 menu"></i>
+            <h2>ME<span>NU</span></h2>
+        </div>
+        <div class="search--notification--profile">
+            <!-- <div class="search">
+                <input id="SearchBar" type="text" value="Duy" placeholder="Tìm kiếm...">
+                <select class="custom-select" id="CategorySelected">
+                    <option selected value="0" >MSSV</option>
+                    <option value="1">Tên</option>
+                    <option value="2">Khoa</option>
+                    <option value="2">Học bổng</option>
+                </select>
+                <button id="buttonSearch"><i class="ri-search-2-line"></i></button>
+            </div> -->
+            <div class="search">
+                <input id="SearchBar" name="SearchBar" type="text" class="form-control" placeholder="Tìm kiếm..." aria-label="Recipient's username" aria-describedby="basic-addon2">
+                <div class="input-group-append">
+                    <select class="custom-select" id="CategorySelected">
+                        <option selected value="0">MSSV</option>
+                        <option value="1">Tên</option>
+                        <option value="2">Khoa</option>
+                        <option value="3">Học bổng</option>>
+                        <option value="4">Giới Tính</option>
+
+                    </select>
+                </div>
+                <button id="buttonSearch"><i class="ri-search-2-line"></i></button>
+            </div>
+            <div class="notification--profile">
+                <div class="picon lock">
+                    <i class="ri-lock-line"></i>
+                </div>
+                <div class="picon bell">
+                    <i class="ri-notification-2-line"></i>
+                </div>
+                <div class="picon chat">
+                    <i class="ri-wechat-2-line"></i>
+                </div>
+                <div class="picon profile">
+                    <img src="image/profile.jpg" alt="">
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="main">
+        <div class="sidebar">
+            <ul class="sidebar--items">
+                <li>
+                    <a href="index.php" id="active--link">
+                        <span class="icon icon-3"><i class="ri-user-2-line"></i></span>
+                        <span class="sidebar--item" style="white-space: nowrap;">Sinh viên</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="notification.php">
+                        <span class="icon icon-1"><i class="ri-layout-grid-line"></i></span>
+                        <span class="sidebar--item">Thông báo</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <span class="icon icon-6"><i class="ri-customer-service-line"></i></span>
+                        <span class="sidebar--item">Quản lý khoa</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <span class="icon icon-7"><i class="ri-line-chart-line"></i></span>
+                        <span class="sidebar--item">Quản lý môn học</span>
+                    </a>
+                </li>
+            </ul>
+            <ul class="sidebar--bottom-items">
+                <li>
+                    <a href="#">
+                        <span class="icon icon-7"><i class="ri-settings-3-line"></i></span>
+                        <span class="sidebar--item">Settings</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="login.php">
+                        <span class="icon icon-8"><i class="ri-logout-box-r-line"></i></span>
+                        <span class="sidebar--item" name="Logout">Đăng suất</span>
+                    </a>
+                </li>
+            </ul>
+        </div>
+        <div class="main--content">
+            <div class="recent--patients">
+                <div class="title">
+                    <h2 class="section--title">QUẢN LÍ SINH VIÊN</h2>
+                    <a href="form.php"><button class="add"><i class="ri-add-line" href="form.html"></i>Thêm sinh viên</button></a>
+
+                </div>
+                <div class="table">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>MSSV</th>
+                                <th>Tên sinh viên</th>
+                                <th>Ngày sinh</th>
+                                <th>Giới tính</th>
+                                <th>Địa chỉ</th>
+                                <th>Khoa</th>
+                                <th>Khóa</th>
+                                <th>Điểm tích lũy</th>
+                                <th>Học bổng</th>
+                                <th>Chỉnh sửa</th>
+                                <th>Xóa</th>
+                            </tr>
+                        </thead>
+                        <tbody id="table-body">
+                        </tbody>
+
+                    </table>
+                </div>
+            </div>
+        </div>
+    </section>
+    <script>
+        let menu = document.querySelector('.menu')
+        let sidebar = document.querySelector('.sidebar')
+        let mainContent = document.querySelector('.main--content')
+
+        menu.onclick = function() {
+            sidebar.classList.toggle('active')
+            mainContent.classList.toggle('active')
+        }
+
+        function Close() {
+            const div = document.querySelector('#myModal');
+            div.style.display = "none";
+        }
+    </script>
+    <div class="modal editForm" id="myModal" role="dialog">
+        <form>
+            <div class="modal-dialog">
+                <!-- Modal content-->
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" onclick="Close()" class="close" data-dismiss="modal">&times;</button>
+                        <h4 class="modal-title">Chỉnh sửa thông tin sinh viên</h4>
+                    </div>
+                    <div class="modal-body" style="text-align: center;">
+                        <h4>Mã số sinh viên:</h4>
+                        <h5 id="mssvNew">haha</h5>
+                    </div>
+                    <div class="modal-body" style="text-align: center;">
+                        <p>Nhập tên sinh viên mới:</p>
+                        <input type="text" id="nameNew" name="nameNew" placeholder="Nhập tên của sinh viên..">
+                        <br>
+                        <br>
+                        <label for="lname">Địa chỉ</label>
+                        <input type="text" id="diachiNew" name="diachiNew" size="45" placeholder="Địa chỉ của sinh viên ..">
+                    </div>
+                    <div class="modal-body">
+                        <label for="dayNew">Chọn ngày sinh mới</label>
+                        <input type="date" id="dayNew" name="dayNew" placeholder="Ngày sinh của sinh viên..">
+
+                        <label for="genderNew">Giới tính</label>
+                        <select id="genderNew" name="genderNew">
+                            <option value="Nam">Nam</option>
+                            <option value="Nữ">Nữ</option>
+                            <option value="Khác">Khác</option>
+                        </select>
+
+                        <label for="falcutyNew">Khoa</label>
+                        <select id="falcutyNew" name="falcuty" New>
+                            <option value="Công nghệ thông tin">Công nghệ thông tin</option>
+                            <option value="Quản trị kinh doanh">Quản trị kinh doanh</option>
+                            <option value="Môi trường">Môi trường</option>
+                            <option value="Điện - điện tử">Điện - điện tử</option>
+                            <option value="Ngoại ngữ">Ngoại Ngữ</option>
+                            <option value="Du lịch">Du lịch</option>
+
+                        </select>
+                        <br>
+                        <label for="khoa">Khóa</label>
+                        <input type="number" id="khoaNew" name="khoaNew" min="1997" max="2023" value="2022" placeholder="Nhập khóa của sinh viên..">
+
+                        <label for="gpaNew">Điểm tích lũy</label>
+                        <input type="number" step="0.01" id="gpaNew" name="gpaNew" min="0" max="10">
+
+                        <label for="hocbongNew">Tình trạng học bổng</label>
+                        <select id="hocbongNew" name="hocbongNew">
+                            <option value="Không">Không</option>
+                            <option value="Có">Có</option>
+                            <option value="Đang chờ">Đang chờ xét học bổng</option>
+                        </select>
+                    </div>
+                    <div class="modal-body">
+
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" onclick="Close()" class="btn btn-default" data-dismiss="modal">Đóng</button>
+                        <input type="submit" class="btn btn-success" data-dismiss="modal" value="Lưu">
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+</body>
+
+</html>
